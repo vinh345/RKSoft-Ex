@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let nam = +prompt(" xin moi nhap so nam");
+        //năm nhuận
+        function namNhuan(nam) {
+            if (nam % 4 == 0) {
+                if (nam % 100 == 0) {
+                    if (nam % 400 == 0) {
+                        console.log("đây là năm nhuận");
+                    }
+                } else {
+                    console.log("đây không là năm nhuận");
+                }
+
+            } else {
+                console.log("đây không là năm nhuận");
+            }
+        } namNhuan(nam);
+
+
+
+    </script>
+
+
+</body>
+
+</html>

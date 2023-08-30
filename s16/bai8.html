@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.
+        let num1 = +prompt("nhập vào số thứ 1");
+        let num2 = +prompt("nhập vào số thứ 2");
+        let arr = [];
+        arr.push(num1, num2);
+
+        function doiCho(params) {
+            let temp = arr[0];
+            arr[0] = arr[1];
+            arr[1] = temp;
+            return arr;
+
+        } 
+        let result = doiCho(arr);
+        console.log(result);
+
+    </script>
+</body>
+
+</html>

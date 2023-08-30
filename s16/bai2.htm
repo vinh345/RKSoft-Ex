@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //c = 2pi.r
+        //s = 2pi.r2
+
+        let r = prompt("mời nhập vào bàn kính hình tròn");
+        if (isNaN(r) || r <= 0) {
+            alert("Bạn phải nhập vào một số dương");
+        } else {
+            // Chuyển đổi đầu vào thành số
+            r = Number(r);
+
+            function chuvihinhtron(r) {
+
+                const pi = Math.PI;
+
+                let c = 2 * pi * r;
+
+                return c;
+            }
+
+            let c = chuvihinhtron(r);
+
+            console.log(c);
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

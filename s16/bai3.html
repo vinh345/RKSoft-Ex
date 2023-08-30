@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <SCript>
+
+        //Viết chương trình tạo hàm
+        // kiểm tra xem ký tự nhập vào có phải ký tự số hay không?  
+
+        function kiemTraLaKyTuSo(character) {
+            return !isNaN(character);
+        }
+
+        let input = prompt("Mời nhập vào một ký tự");
+        let isNumber = kiemTraLaKyTuSo(input);
+
+        if (isNumber) {
+            console.log('Ký tự nhập là ký tự số');
+        } else {
+            console.log('Ký tự nhập không là ký tự số');
+        }
+
+    </SCript>
+</body>
+
+</html>

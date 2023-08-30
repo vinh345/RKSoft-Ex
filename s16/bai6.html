@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Viết hàm nhập vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không. 
+        //Nếu là nguyên dương trả về true, ngược lại trả về false.
+
+        let arr = +prompt("Nhập vào một số");
+        let number = parseInt(arr);
+        
+        function kiemTraSoNguyenDuong(number) {
+            if (Number.isInteger(number) && number > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(kiemTraSoNguyenDuong(number));
+
+
+
+
+    </script>
+</body>
+
+</html>
