@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"> </div>
+    <script>
+        let myDivById = document.getElementById("container");
+
+        let span = document.createElement("span")
+        span.innerText = "Nhap noi dung tim kiem"
+
+        myDivById.appendChild(span)
+
+        let input = document.createElement("input")
+        myDivById.appendChild(input)
+
+        let link = document.createElement("a")
+        link.innerText = "Ẩn nội dung tìm kiếm"
+        myDivById.appendChild(link);
+        link.style.textDecoration = "underline";
+
+        let select = document.createElement("select")
+        let opt1 = document.createElement("option")
+        opt1.innerText = "Quan ao"
+        let opt2 = document.createElement("option")
+        opt2.innerText = "Giay dep"
+
+        select.appendChild(opt1)
+        select.appendChild(opt2)
+
+        myDivById.appendChild(select)
+ 
+     
+    </script>
+</body>
+
+</html>

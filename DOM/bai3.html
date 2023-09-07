@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box1 {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+    }
+
+    #box2 {
+        background-color: green;
+        width: 200px;
+        height: 200px;
+        bac
+    }
+
+    #box3 {
+        width: 200px;
+        height: 200px;
+        background-color: rgb(126, 145, 177);
+    }
+
+    #box {
+        display: flex;
+    }
+</style>
+
+<body>
+    <div id=box>
+        <div id=box1> </div>
+        <div id=box2> </div>
+        <div id=box3> </div>
+    </div>
+
+    <script>
+        // Lấy phần tử có id là box1
+        let box1 = document.getElementById("box1");
+        // Lấy phần tử body
+        let body = document.body;
+        box1.addEventListener("mouseover", () => {
+            body.style.backgroundColor = "yellow";
+        });
+
+        // Lấy phần tử có id là box2
+        let box2 = document.getElementById("box2");
+        box2.addEventListener("mouseover", () => {
+            body.style.backgroundColor = "green";
+        });
+
+        // Lấy phần tử có id là box3
+        let box3 = document.getElementById("box3");
+        box3.addEventListener("mouseover", () => {
+            body.style.backgroundColor = "rgb(126, 145, 177)";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        #box {
+            width: 300px;
+            height: 100px;
+            background-color: white;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2> Modal Example </h2>
+    <button id="btn"> Open modal </button>
+    
+
+    <div id="modal">
+        <div id="box">
+            <P>Some test the modal ...</P>
+            <button id="btn1" > X </button>
+        </div>
+    </div>
+
+    <script>
+        btn.onclick = function () {
+            box.style.visibility = "visible";
+            document.body.style.backgroundColor = "green";
+        }
+        btn1.onclick = function () {
+            box.style.visibility = "hidden";
+            document.body.style.backgroundColor = "gray";
+        } 
+
+    
+
+    
+    </script>
+</body>
+
+</html>

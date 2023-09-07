@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const container = document.getElementById("container");
+        let noidung = document.createElement("div");
+        noidung.innerText = "Nhap noi dung tim kiem";
+        container.appendChild(noidung);
+        let input = document.createElement("input");
+        container.appendChild(input);
+
+        let noidunga = document.createElement("div");
+        noidunga.innerText = "Tim kiem nang cao";
+        noidunga.style.textDecoration = "underline";
+
+        noidunga.style.cursor = "pointer";
+        container.appendChild(noidunga);
+        let flag = false;
+        noidunga.addEventListener('click', function changeDiv() {
+            flag = !flag;
+            if (flag) {
+                noidunga.innerHTML = "An tim kiem nang cao";
+                document.getElementById("select").innerHTML = `
+                <select>
+                    <option value="0" selected>Quan ao</option>    
+                </select>
+            `
+            } else {
+                noidunga.innerHTML = "Tim kiem nang cao";
+                document.getElementById("select").innerHTML = "";
+            }
+        }
+        )
+
+    </script>
+</body>
+
+</html>

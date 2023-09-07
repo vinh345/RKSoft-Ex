@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDiv {
+            background-color: red;
+        }
+
+        #newDiv {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myDiv" style="font-size: 100px;">
+        <h3>123</h3>
+        <h4 id="myH4">456</h4>
+    </div>
+    <div id="myDiv1" class="myDiv" style="font-size: 100px;">
+        <h4>123</h4>
+        456
+        <p style="visibility: hidden;">day la the p</p>
+        789
+    </div>
+    123
+    <div style="font-size: 100px;">789</div>
+    <div id="myDiv3" class="myDiv" style="font-size: 100px;">abc</div>
+    <input type="text" id="myInp">
+
+    <script>
+         let myInp = document.getElementById("myInp")
+        console.log(myInp.value);
+        myInp.style.backgroundColor = "red"
+        myInp.setAttribute("placeholder", "day la placeholder")
+
+        truy cập phần tử html theo id
+
+        let myDivById = document.getElementById("myDiv1")
+        console.log("innerHTML", myDivById.innerHTML);
+        console.log("innerText", myDivById.innerText);
+        console.log("TextContent", myDivById.textContent);
+
+
+        lấy ra tập hợp các phần tử html theo tên thẻ
+        các phần tử được lưu trong HTML collection
+        let divCollection = document.getElementsByTagName("div")
+        truy cập các phần tử html theo class
+        các phần tử được lưu trong HTML collection
+        let myDivByClass = document.getElementsByClassName("myDiv")
+
+        truy cập phần tử theo bộ chọn (css selector)
+        chỉ lấy được 1 phần tử
+        let myDivBySelector = document.querySelector("#myDiv")
+        truy cập tập hợp các phần tử theo bộ chọn
+        các phần tử được lưu trong NodeList
+        let listBySelector = document.querySelectorAll(".myDiv")
+        console.log(myDivById.id);
+        console.log(divCollection);
+        let myNumber = "123465"
+        thay đổi giá trị thuộc tính của thẻ html
+        myDivById.innerHTML = `<h3>${myNumber}</h3>
+        <span>123</span>`
+        myDivById.id = ""
+        myDivById.style = "background-color:red"
+        myDivById.style.backgroundColor = "red"
+
+
+
+        thêm và xóa phần tử trong html
+        tạo phần tử HTML mới
+        let newDiv = document.createElement("div")
+        newDiv.innerText = "div mới"
+        newDiv.id = "newDiv"
+        newDiv.style.backgroundColor = "blue"
+
+
+      
+
+      
+      
+
+
+    </script>
+</body>
+
+</html>

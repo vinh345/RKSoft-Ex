@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // truy cập phần tử html theo id
+        let myDivById = document.getElementById("myDiv");
+
+        //lấy ra tập hợp các phần tử html theo tên thẻ
+        //các phần tử được lưu trong html colection
+        let divCollection = document.getElementsByTagName("div")
+
+        //truy cập các phần tử html theo class
+        //các phân tử được lưu trong HTML collection
+        let myDivByClass = document.getElementsByClassName("myDiv")
+
+
+        //truy cập phần tử theo bộ chọn(css sellector)
+        //chỉ lấy dk 1 phần tử
+        let myDivBySelector = document.querySelector(".myDiv>h4")
+
+        //truy cập các phần tử theo bộ chọn
+        let myDivBySelector = document.querySelectorAll  
+
+
+
+        //thay đổi giá trị thuộc tính của thẻ html
+        myDivById.innerHTML = "<h3> 123 <h3>"
+        myDivById.id = ""
+        myDivById.style = "background-color:red"
+        //thêm và xóa phần tử html
+        //tạo phần tử HTML mới
+
+
+
+
+        let newDiv = document.createElement("thẻ")
+        console.log(newDiv);
+        newDiv.innerText = "div mới"
+        newDiv.id = "newDiv"
+
+
+
+        //thêm phần tử html vào cuối của phần tử khác
+        myDivById.appendChild("newDiv")
+        //xóa phần tử HTML trong phần tử khác
+        myDivById.removeChild(newDiv)
+
+        //thay đổi phần tử thành phần tử khác
+        let h4 = document.getElementById("myh4")
+        //thêm phần tử html vào trong phần tử khác
+        myDivById.replaceChildren(newDiv, h4)
+
+        h4.removeAttribute("id")
+
+      ` 
+
+    </script>
+</body>
+
+</html>

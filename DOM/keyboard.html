@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="myInput">
+    <script>
+        let myInput = document.getElementById("myInput")
+        
+        //sự kiện khi nhấn phím trên bàn phím
+        myInput.addEventListener("keypress", (e) => {
+            console.log("nhan phim", e.keyCode);
+            if (e.keyCode == 97) {
+                console.log("an phim a");
+            }
+        })
+
+        //sự kiện khi nhấn phím xuống
+        myInput.addEventListener("keydown", (e) => {
+            console.log("nhan phim", e.keyCode);
+        })
+
+        //sự kiện khi nhấc phím lên
+        myInput.addEventListener("keyup", (e) => {
+            console.log("nhan phim", e.keyCode);
+        })
+    </script>
+</body>
+
+</html>
