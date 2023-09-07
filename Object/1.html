@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //let students = {
+        /* 
+        - chứa các cặp key value
+        - ngăn cách bởi dấu "," 
+        - key - thuộc tính
+        - value -giá trị
+        */
+        /* name: "hieu",
+        age: 25
+    }
+    students.adress = "Hai Dương";
+
+    for (const abc in object) {
+        console.log(abc);
+    }
+
+    delete students.age;
+    Console.log(students); */
+
+        /* let st1 = new Students("hoa",25);
+        let st2 = new Students("nam",26);
+        
+        console.log(st1);
+        function Students(name ,age ) {
+           this.a = name;
+           this.b = age; 
+        }
+        
+        console.log(st2); */
+
+        /*  let obj1 = {
+             name: "hoa",
+             infor: {
+                 address: "hà nội",
+                 age: 25
+             }
+         }
+         let obj2 = { ...obj1 };
+         obj1.name = "tươi";
+         obj1.infor.address = "hcm";
+         obj1.infor.age = 26;
+         console.log(obj2.name);
+         console.log(obj2.infor.address);
+         console.log(obj2.name.infor); */
+        /* 
+                let obj2 = JSON.parse(JSON.stringify(obj1));
+               obj1.infor.address ="hcm";
+              console.log(obj1); */
+
+/* 
+              bai1
+        let products = [
+            { id: 1, name: "mike", count: 100 },
+            { id: 1, name: "Yakult", count: 100 },
+            { id: 1, name: "Butter", count: 100 },
+        ];
+        let obj1 = {
+            id: 4,
+            name: "híu",
+            count: 101,
+        }
+        products.push(obj);
+
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].id == 2) {
+                products.splice(i, 1);
+                console.log(products);
+            }
+        } */
+let students=[
+    {
+        name: "hoa",
+        id :1
+    }
+    {
+        name: "hoa",
+        id :2
+    }
+    {
+        name: "hoa",
+        id :2
+    }
+]
+
+        let result = students.filter(function name(a,b,c)){
+            console.log(a,b,c);
+        }
+         a : giá trị thuộc tính
+         b: index - vị trí trong array
+         c: trả lại arrar
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*                 let products = [
+                            { id: 1, name: "Milk", count: 100 },
+                            { id: 2, name: "Yakult", count: 100 },
+                            { id: 3, name: "Butter", count: 100, },
+                        ];
+                
+                        let newProducts = {id : 4, name : "vinamilk", count : 100};
+                        products.push(newProducts);
+                        console.log(products);  */
+
+        // bai2 + 3 + 4
+ 
+        let student = { id: 1, name: "nguyen van A", gender: "nam", age: 20, mark: 8, };
+        let newStudent = { id: 2, name: "nguyen van B", gender: "nam", age: 25, mark: 5, };
+
+        let students = [student, newStudent];
+        console.log(students[1].name);
+        console.log(students[1].gender);
+        console.log(students[1].age);
+
+        if (newStudent.mark > student.mark) {
+            console.log("học sinh có điểm tb cao hơn:");
+            console.log(newStudent);
+        } else {
+            console.log("học sinh có điểm tb cao hơn:");
+            console.log(student);
+        } 
+
+           let max = 0;
+        for (let i = 0; i < students.length; i++) {
+            if (students[i].mark > max) {
+                max = students[i].mark;
+            }
+
+        }
+        let result = students.find(item => item.mark === max);
+        console.log(result); */ 
+ 
+         let newStudent2 = { id: 3, name: "nguyen van C", gender: "nữ", age: 22, mark: 4, };
+        students.push(newStudent2);
+        let diemTb = (newStudent.mark + student.mark + newStudent2.mark) / 3;
+        if (diemTb > 7.5) {
+            console.log("lớp khá");
+        } else if (diemTb < 7.5 && diemTb > 5) {
+            console.log("lớp TB");
+        } else if (diemTb < 5) {
+            console.log("lớp yếu");
+        } 
+
+
+        // Đây là cách bạn khai báo một mảng có tên là stores, chứa các đối tượng biểu diễn các sản phẩm của cửa hàng
+        // Mỗi đối tượng có ba thuộc tính: id, name và count
+        // id là số nguyên dương duy nhất cho mỗi sản phẩm
+        // name là tên của sản phẩm, có thể là Milk, Yakult hoặc Butter
+        // count là số lượng của sản phẩm hiện có trong kho của cửa hàng
+
+        // Bạn
+
+
+
+
+        
+
+       
+        let stores = [{ id: 1, name: "Milk", count: 100 },
+        { id: 2, name: "Yakult", count: 100 },
+        { id: 3, name: "Butter", count: 100, }
+        ];
+        //khai báo mảng để chứa phần tử được thêm vào
+        let carts = []
+        //điều kiện vòng lặp while
+        let n = 0;
+        while (n >= 0) {
+            let input = prompt("Mời nhập C or R or U or D or E");
+            if (input == "C") {
+                let input1 = prompt("Mời nhập sản phẩm muốn mua");
+                //lặp qua mảng stores để kiểm tra sản phẩm có tồn tại
+                for (let i = 0; i < stores.length; i++) {
+                    //sản phẩm tồn tại trong mảng stores
+                    if (input1 == stores[i].name) {
+                        //Tìm chỉ số của phần tử trong mảng carts
+                        //nếu có thì trả về chỉ số nếu không thì trả về -1
+                        let cartsIndex = carts.findIndex(
+                            (item) => {
+                            return item.name == input1
+                        }
+                        )
+                        console.log(cartsIndex);
+                        //nếu không có thì thêm mới
+                        if (cartsIndex == -1) {
+                            carts.push({ id: 1, name: "Milk", count: 1 });
+                        } else {
+                            //nếu có thì chỉ tăng count của phần tử
+                            carts[cartsIndex].count++
+                        }
+                        //giảm count của phần tử trong mảng stores
+                        stores[i].count = stores[i].count - 1;
+                    }
+                }
+                console.log(stores, "giỏ cửa hàng");
+                console.log(carts, "trong giỏ carts");
+            } else {
+                break;
+            }
+            n += 1;
+        } 
+
+
+
+      /*   let arr = [1, 3, 5, 6, 8, 9];
+        let evenIndex = arr.findIndex(function (element) {
+            return element % 2 == 0; // Trả về true nếu element là số chẵn
+        });
+        console.log(evenIndex); // 3 */
+// bai5
+        /* let stores = [
+            { id: 1, name: "Milk", count: 100 },
+            { id: 2, name: "Yakult", count: 100 },
+            { id: 3, name: "Butter", count: 100 },
+        ];
+        let carts = []
+        let coun = 0;
+        do {
+            let text = prompt("moi nhap vao C/R/U/D/E")
+            if (text == "C") {
+                let name = prompt("moi nhap ten san pham muon mua?")
+                for (let i = 0; i < stores.length; i++) {
+                    if (stores[i].name == name) {
+                        //kiem tra phan tu co trong carts ko
+                        let cartItem = carts.findIndex((item) => {
+                            return item.name == name
+                        })
+                        if (cartItem > -1) {
+                            carts[cartItem].count = carts[cartItem].count + 1
+                        }
+                        else {
+                            carts.push({ "name": name, "count": 1 })
+                        }
+                        stores[i].count = stores[i].count - 1;
+                        coun++;
+                    }
+                }
+                if (coun < 1) {
+                    console.log("ko co san pham trong stores")
+                } else {
+                    console.log(carts);
+                }
+                coun = 0;
+            }
+            else if (text == "R") {
+                console.log(stores);
+                console.log(carts);
+            } else if (text == "U") {
+                let positive = +prompt("vi tri can update")
+                if (positive < carts.length && positive >= 0) {
+                    console.log(carts[positive]);
+                    let productCoun = +prompt("moi ban thay doi so luong")
+                    let storesItem = stores.findIndex((item) => {
+                        return item.name == carts[positive].name
+                    })
+                    if (productCoun <= stores[storesItem].count) {
+                        stores[storesItem].count = stores[storesItem].count + carts[positive].count;
+                        carts[positive].count = productCoun;
+                        stores[storesItem].count = stores[storesItem].count - productCoun
+                        console.log(carts[positive]);
+                    } else {
+                        console.log(`trong kho ko du hang chi con lai ${stores[storesItem].count}`); 
+                    }
+                }
+                else {
+                    console.log("ko co vi tri trong mang")
+                }
+            } else if (text == "D") {
+                console.log(carts);
+                let dele = +prompt("vi tri muon xoa")
+                let storeItem = stores.findIndex((item) => {
+                    return item.name == carts[dele].name
+                });
+                stores[storeItem].count = stores[storeItem].count + carts[dele].count
+                carts.splice(dele, 1);
+                console.log(carts);
+            }
+else if (text == "E") {
+                break;
+            }
+        } while (coun >= 0) */
+        
+    </script>
+</body>
+
+</html>
