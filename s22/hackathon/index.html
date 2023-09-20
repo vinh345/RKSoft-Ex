@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<style>
+    .container {
+        position: relative;
+        width: 200px;
+    }
+
+    #inputNumber {
+        width: 80%;
+        padding: 5px;
+
+    }
+
+    .done {
+        position: absolute;
+        right: 20%;
+        color: rgb(252, 5, 211);
+    }
+
+    /* css list-card */
+    .list-card {
+        width: 800px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .image-card {
+        border: 1px solid green;
+        border-radius: 5px;
+    }
+
+    .image-card-choose {
+        border: 5px solid red;
+        border-radius: 5px;
+    }
+
+    .image-card img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
+
+    /* css card-info */
+    .card-info {
+        width: 400px;
+        display: flex;
+        gap: 15px;
+        margin: 15px 0px;
+    }
+
+    .card-info div input {
+        width: 200px;
+        padding: 5px;
+    }
+
+    input {
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    /* css button */
+    .btn {
+        display: block;
+        width: 150px;
+        height: 50px;
+        background-color: rgb(76, 15, 245);
+        border-radius: 20px;
+        border: none;
+        color: #fff;
+        margin: 15px 0px;
+    }
+
+    /* css ảnh trong table */
+    .image-table {
+        width: 60px;
+        height: 60px;
+    }
+
+    tr,
+    td {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <h2>Select Card</h2>
+    <div class="list-card">
+        <!-- <div class="image-card"><img src="./image/discover.jpg" alt=""></div>
+       <div class="image-card"><img src="./image/express.jpg" alt=""></div>
+       <div class="image-card"><img src="./image/mastercard.jpg" alt=""></div>
+       <div class="image-card"><img src="./image/paypal.jpg" alt=""></div>
+       <div class="image-card"><img src="./image/visa.jpg" alt=""></div> -->
+    </div>
+
+    <div class="container">
+        <h2> Card Number</h2>
+        <input type="text" id="inputNumber" oninput="cardNumber(event)" maxlength="19">
+        <span style="display: none;" class="material-symbols-outlined done">
+            done
+        </span>
+    </div>
+
+    <div class="card-info">
+        <div class="date">
+            <label for="">Expiry Date</label>
+            <input type="text" id="date" placeholder="MM/YY">
+        </div>
+
+        <div class="card-detail">
+            <label for="">CVC/CVV</label>
+            <input type="text" id="inputCarDetail" oninput="cardDetail(event)" maxlength="3">
+        </div>
+    </div>
+
+    <button class="btn" onclick="addInfo()">Save</button>
+    <table border="1px" cellpadding="5px" cellspacing="5px" id="table">
+        <thead>
+            <tr>
+                <th> STT </th>
+                <th> Card Image </th>
+                <th> Card Number </th>
+                <th> Expiry Date </th>
+                <th> CVC/CVV </th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <!-- khi có nhiều tr ném hết tr vào đây -->
+        </tbody>
+    </table>
+    <script>
+        // mảng để chứa ảnh
+        let cards = ["./image/discover.jpg", "./image/express.jpg",
+            "./image/mastercard.jpg", "./image/paypal.jpg", "./image/visa.jpg",];
+        // mảng chứa tất cả các đối tượng
+        let datas = [];
+        let image = "";
+        /* reder lisr-card */
+        function renderCard(params) {
+            let text = "";
+            for (let i = 0; i < cards.length; i++) {
+                text +=
+                    `
+                         <div class="image-card" onclick="chooseCard(${i})"><img src="${cards[i]}" alt=""></div>
+                    `
+            }
+            document.getElementsByClassName("list-card")[0].innerHTML = text;
+        }
+        renderCard();
+
+        /*  function chọn ảnh */
+        function chooseCard(numberCard) {
+            image = numberCard;
+            let imageCards = document.getElementsByClassName("image-card");
+            for (let i = 0; i < imageCards.length; i++) {
+                if (i == numberCard) {
+                    imageCards[i].classList.add("image-card-choose");
+                } else {
+                    imageCards[i].classList.remove("image-card-choose");
+                }
+            }
+        }
+
+        /*  function chọn CVC/ CVV */
+        let nums = "";
+        function cardDetail(e) {
+            let text = "";
+            let input = document.getElementById("inputCarDetail");
+            let value = input.value.replace(/\D/g, ""); // Loại bỏ tất cả các ký tự không phải là số
+            // Tạo một biến để lưu giá trị đã được định dạng;
+            nums += value;
+            if (e.data == null) {
+                nums = "";
+            }
+            for (let i = 0; i < nums.length; i++) {
+                text += "*";
+            }
+            document.getElementById("inputCarDetail").value = text;
+        }
+        let inputValue = "";
+        function cardNumber(e) {
+
+            document.getElementsByClassName("done")[0].style.display = "none";
+            let text = "";
+            let value = document.getElementById("inputNumber").value;
+            if ((value.length == 4 || value.length == 9 || value.length == 14) && e.data != null) {
+                text = value + " ";
+                document.getElementById("inputNumber").value = text;
+            }
+            if (value.length == 19) {
+                inputValue = document.getElementById("inputNumber").value;
+                document.getElementsByClassName("done")[0].style.display = "inline-block";
+            }
+            if (value.length == 20) {
+                document.getElementById("inputNumber").value = inputValue;
+            }
+        }
+        // function tạo id
+        function uuid() {
+            return Math.floor(Math.random() * 9999999);
+        }
+        // function add các trường dữ liệu
+        // function tạo mã hoá sao card number
+        function encryption(inputNumber) {
+            let result = inputNumber.split("");
+
+            result.splice(8, 9, "* **** **")
+            encode = result.join("");
+            console.log(encode);
+            return encode;
+        }
+        function addInfo() {
+
+            let user = {
+                image: cards[image],
+                inputValue: document.getElementById("inputNumber").value,
+                encode: encryption(document.getElementById("inputNumber").value),
+                date: document.getElementById("date").value,
+                card: nums,
+                cardDetail: "***",
+                id: uuid(),
+            }
+            datas.push(user);
+            renderDatas();
+        }
+        // function hiển thị đổ dữ liệu ra bảng.
+        function renderDatas() {
+            let text = "";
+            for (let i = 0; i < datas.length; i++) {
+                text +=
+                    `
+                 <tr>
+                    <td>${i + 1}</td>
+                    <td>
+                        <img class="image-table" src="${datas[i].image}">
+                    </td>
+                    <td>${datas[i].encode}</td>
+                    <td>${datas[i].date}</td>
+                    <td>${datas[i].cardDetail}</td>
+                    <td>
+                        <button onclick="viewCard(${datas[i].id})"> View </button>
+                        <button> Edit </button>
+                        <button> Delete </button>
+                    </td>
+                 </tr>
+                `
+            }
+            if (datas.length == 0) {
+                document.getElementById("table").style.display = "none";
+            } else {
+                document.getElementById("table").style.display = "block";
+            }
+            document.getElementById("tbody").innerHTML = text;
+        }
+        renderDatas();
+        // function view card
+        function viewCard(id) {
+            for (let i = 0; i < datas.length; i++) {
+                if (datas[i].id == id) {
+                    if (datas[i].cardDetail == "***") {
+                        datas[i].cardDetail = datas[i].card;
+                    } else {
+                        datas[i].cardDetail = "***";
+                    }
+                    if (datas[i].encode == encryption(datas[i].inputValue)) {
+                        datas[i].encode = datas[i].inputValue;
+                    } else {
+                        datas[i].encode = encryption(datas[i].inputValue);
+                    }
+                    renderDatas();
+                    return;
+                }
+            }
+        }
+    </script>
+</body>
+
+
+</html>
