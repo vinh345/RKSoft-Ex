@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Cho người dùng nhập vào chuỗi kí tự. Viết hàm kiểm tra xem tần suất xuất hiện của mỗi ký tự và in ra chúng
+        let text = "hello world";
+        let myArray = text.split("");
+        let text2 = [];
+
+        for (let i = 0; i < myArray.length; i++) {
+            if (text2.indexOf(myArray) === -1) {
+                text2.push(myArray[i])
+            }
+        }
+
+        for (let j = 0; j < text2.length; j++) {
+            count = 0;
+            for (let k = 0; k < myArray.length; k++) {
+                if (text[j] === myArray[k]) {
+                    count++;
+                }
+            }
+            console.log(`${text2[j]} xuất hiện ${count}`);
+        }
+
+    </script>
+</body>
+
+</html>
